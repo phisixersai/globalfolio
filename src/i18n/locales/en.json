@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "Globalfolio",
+    "subtitle": "Personal Asset Portfolio Viewer"
+  },
+  "nav": {
+    "assets": "Asset Input",
+    "dashboard": "Dashboard"
+  },
+  "currency": {
+    "TWD": "TWD",
+    "JPY": "JPY",
+    "USD": "USD",
+    "displayCurrency": "Display Currency"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "assets": {
+    "title": "Asset Input",
+    "cash": {
+      "title": "Cash",
+      "TWD": "TWD Cash",
+      "JPY": "JPY Cash",
+      "USD": "USD Cash"
+    },
+    "stocks": {
+      "title": "Stocks / Futures",
+      "TW": "TW Market",
+      "JP": "JP Market",
+      "US": "US Market"
+    },
+    "realEstate": {
+      "title": "Real Estate",
+      "amount": "Amount",
+      "currency": "Currency"
+    },
+    "liabilities": {
+      "title": "Liabilities",
+      "amount": "Amount",
+      "currency": "Currency"
+    }
+  },
+  "dashboard": {
+    "netWorth": "Net Worth",
+    "grossAssets": "Gross Assets",
+    "totalLiabilities": "Total Liabilities",
+    "allocation": "Asset Allocation",
+    "breakdown": "Asset Breakdown",
+    "category": "Category",
+    "originalAmount": "Original Amount",
+    "convertedValue": "Converted Value",
+    "percentage": "Percentage"
+  },
+  "exchange": {
+    "title": "Exchange Rates",
+    "rate": "Rate",
+    "override": "Manual Override",
+    "reset": "Reset",
+    "lastUpdated": "Last Updated",
+    "perUSD": "/ 1 USD"
+  },
+  "allocation": {
+    "cash.TWD": "Cash TWD",
+    "cash.JPY": "Cash JPY",
+    "cash.USD": "Cash USD",
+    "stocks.TW": "TW Stocks",
+    "stocks.JP": "JP Stocks",
+    "stocks.US": "US Stocks",
+    "realEstate": "Real Estate"
+  },
+  "footer": {
+    "description": "Data is stored locally in your browser and never uploaded to any server."
+  }
+}

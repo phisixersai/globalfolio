@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Globalfolio</title>
+    <script>
+      // Prevent FOUC (Flash of Unstyled Content) for dark mode
+      (function() {
+        const key = 'globalfolio_theme_v1';
+        const theme = localStorage.getItem(key);
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Parse stored theme or use system preference
+        let storedTheme = 'dark'; // default
+        if (theme) {
+          try {
+            storedTheme = JSON.parse(theme);
+          } catch {
+            storedTheme = theme;
+          }
+        } else if (prefersDark) {
+          storedTheme = 'dark';
+        }
+
+        // Apply dark class immediately
+        if (storedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

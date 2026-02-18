@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "Globalfolio",
+    "subtitle": "個人資産ポートフォリオビューア"
+  },
+  "nav": {
+    "assets": "資産入力",
+    "dashboard": "ダッシュボード"
+  },
+  "currency": {
+    "TWD": "台湾ドル (TWD)",
+    "JPY": "日本円 (JPY)",
+    "USD": "米ドル (USD)",
+    "displayCurrency": "表示通貨"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク"
+  },
+  "assets": {
+    "title": "資産入力",
+    "cash": {
+      "title": "現金",
+      "TWD": "TWD現金",
+      "JPY": "JPY現金",
+      "USD": "USD現金"
+    },
+    "stocks": {
+      "title": "株式・先物",
+      "TW": "台湾市場",
+      "JP": "日本市場",
+      "US": "米国市場"
+    },
+    "realEstate": {
+      "title": "不動産",
+      "amount": "金額",
+      "currency": "通貨"
+    },
+    "liabilities": {
+      "title": "負債",
+      "amount": "金額",
+      "currency": "通貨"
+    }
+  },
+  "dashboard": {
+    "netWorth": "純資産",
+    "grossAssets": "総資産",
+    "totalLiabilities": "総負債",
+    "allocation": "資産配分",
+    "breakdown": "資産内訳",
+    "category": "カテゴリ",
+    "originalAmount": "元の金額",
+    "convertedValue": "換算金額",
+    "percentage": "割合"
+  },
+  "exchange": {
+    "title": "為替レート",
+    "rate": "レート",
+    "override": "手動上書き",
+    "reset": "リセット",
+    "lastUpdated": "最終更新",
+    "perUSD": "/ 1 USD"
+  },
+  "allocation": {
+    "cash.TWD": "現金 TWD",
+    "cash.JPY": "現金 JPY",
+    "cash.USD": "現金 USD",
+    "stocks.TW": "台湾株",
+    "stocks.JP": "日本株",
+    "stocks.US": "米国株",
+    "realEstate": "不動産"
+  },
+  "footer": {
+    "description": "データはブラウザにローカル保存され、サーバーにアップロードされません。"
+  }
+}

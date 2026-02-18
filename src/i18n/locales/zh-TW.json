@@ -1,0 +1,76 @@
+{
+  "app": {
+    "title": "Globalfolio",
+    "subtitle": "個人資產組合總覽"
+  },
+  "nav": {
+    "assets": "資產輸入",
+    "dashboard": "總覽面板"
+  },
+  "currency": {
+    "TWD": "新台幣 (TWD)",
+    "JPY": "日圓 (JPY)",
+    "USD": "美元 (USD)",
+    "displayCurrency": "顯示幣別"
+  },
+  "theme": {
+    "light": "淺色模式",
+    "dark": "深色模式"
+  },
+  "assets": {
+    "title": "資產輸入",
+    "cash": {
+      "title": "現金",
+      "TWD": "新台幣現金",
+      "JPY": "日圓現金",
+      "USD": "美元現金"
+    },
+    "stocks": {
+      "title": "股票 / 期貨",
+      "TW": "台灣市場",
+      "JP": "日本市場",
+      "US": "美國市場"
+    },
+    "realEstate": {
+      "title": "不動產",
+      "amount": "金額",
+      "currency": "幣別"
+    },
+    "liabilities": {
+      "title": "負債",
+      "amount": "金額",
+      "currency": "幣別"
+    }
+  },
+  "dashboard": {
+    "netWorth": "淨資產",
+    "grossAssets": "總資產",
+    "totalLiabilities": "總負債",
+    "allocation": "資產配置",
+    "breakdown": "資產明細",
+    "category": "類別",
+    "originalAmount": "原始金額",
+    "convertedValue": "換算金額",
+    "percentage": "佔比"
+  },
+  "exchange": {
+    "title": "匯率",
+    "rate": "匯率",
+    "override": "手動覆寫",
+    "reset": "重置",
+    "lastUpdated": "最後更新",
+    "perUSD": "/ 1 USD"
+  },
+  "allocation": {
+    "cash.TWD": "現金 TWD",
+    "cash.JPY": "現金 JPY",
+    "cash.USD": "現金 USD",
+    "stocks.TW": "台股",
+    "stocks.JP": "日股",
+    "stocks.US": "美股",
+    "realEstate": "不動產"
+  },
+  "footer": {
+    "description": "資料儲存於瀏覽器本機，不會上傳至任何伺服器。"
+  }
+}
