@@ -63,16 +63,69 @@ export function AllocationPieChart() {
           },
         },
         datalabels: {
-          color: '#ffffff',
-          font: {
-            size: 16,
-            weight: 'bold' as const,
+          color: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            // Small slices get dark text on light background
+            return percentage < 8 ? (theme === 'dark' ? '#1f2937' : '#111827') : '#ffffff';
+          },
+          font: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            return {
+              size: percentage < 8 ? 13 : 16,
+              weight: 'bold' as const,
+            };
           },
           formatter: (value: number) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
             const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
             return percentage > 0 ? `${percentage}%` : '';
           },
+          // Position labels differently based on slice size
+          anchor: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            // Small slices: anchor at the end (outer edge)
+            // Large slices: anchor at center for better positioning
+            return percentage < 8 ? 'end' : 'center';
+          },
+          align: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            // Small slices: align to end (outside the chart)
+            // Large slices: align to center
+            return percentage < 8 ? 'end' : 'center';
+          },
+          offset: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            // Small slices get pushed further out
+            return percentage < 8 ? 10 : 0;
+          },
+          backgroundColor: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            // Small slices get a background box for readability
+            return percentage < 8 ? (theme === 'dark' ? 'rgba(229, 231, 235, 0.95)' : 'rgba(255, 255, 255, 0.95)') : 'transparent';
+          },
+          borderColor: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            return percentage < 8 ? (theme === 'dark' ? 'rgba(156, 163, 175, 0.5)' : 'rgba(209, 213, 219, 0.8)') : 'transparent';
+          },
+          borderWidth: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            return percentage < 8 ? 1 : 0;
+          },
+          borderRadius: 4,
+          padding: (context: any) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            return percentage < 8 ? 4 : 0;
+          },
+          clamp: false, // Allow labels to go outside the chart area
         },
       },
     }),
