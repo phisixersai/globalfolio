@@ -88,10 +88,9 @@ export function AllocationPieChart() {
             font: {
               size: 13,
             },
-            generateLabels: (chart: any) => {
-              const datasets = chart.data.datasets;
+            generateLabels: () => {
               // Use original slices order for legend
-              return slices.map((slice, i) => {
+              return slices.map((slice) => {
                 const reorderedIndex = reorderedSlices.findIndex((s) => s.label === slice.label);
                 return {
                   text: t(`allocation.${slice.label}`),
