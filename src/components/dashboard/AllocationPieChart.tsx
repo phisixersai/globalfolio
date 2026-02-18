@@ -2,13 +2,14 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { usePortfolioContext } from '../../contexts/PortfolioContext';
 import { useExchangeRateContext } from '../../contexts/ExchangeRateContext';
 import { useThemeContext } from '../../contexts/ThemeContext';
 import { calculateAllocation } from '../../utils/calculateAllocation';
 import { Card } from '../ui/Card';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 export function AllocationPieChart() {
   const { t } = useTranslation();
@@ -59,6 +60,18 @@ export function AllocationPieChart() {
               const pct = total > 0 ? ((context.parsed / total) * 100).toFixed(1) : '0';
               return `${context.label}: ${pct}%`;
             },
+          },
+        },
+        datalabels: {
+          color: '#ffffff',
+          font: {
+            size: 16,
+            weight: 'bold' as const,
+          },
+          formatter: (value: number) => {
+            const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
+            const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
+            return percentage > 0 ? `${percentage}%` : '';
           },
         },
       },
