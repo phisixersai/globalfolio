@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Card background -->
+  <rect x="100" y="120" width="1000" height="390" rx="24" fill="url(#cardGradient)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="2"/>
+
+  <!-- Logo/Icon -->
+  <g transform="translate(150, 180)">
+    <!-- Earth -->
+    <circle cx="50" cy="50" r="45" fill="#3b82f6" opacity="0.9"/>
+    <path d="M 30 40 Q 35 35 45 38 Q 50 42 48 50 Q 45 58 38 58 Q 32 56 30 50 Q 28 45 30 40 Z" fill="#10b981" opacity="0.8"/>
+    <path d="M 60 38 Q 65 35 72 38 Q 75 42 73 48 Q 70 55 65 55 Q 60 53 58 48 Q 58 42 60 38 Z" fill="#10b981" opacity="0.8"/>
+    <ellipse cx="38" cy="42" rx="12" ry="9" fill="white" opacity="0.15"/>
+
+    <!-- Wallet -->
+    <path d="M 15 30 Q 15 22 23 18 L 77 18 Q 85 22 85 30 L 85 38 Q 85 42 82 42 L 18 42 Q 15 42 15 38 Z" fill="#f59e0b" opacity="0.95"/>
+    <circle cx="78" cy="28" r="5" fill="#fbbf24"/>
+    <circle cx="78" cy="28" r="2.5" fill="#78350f"/>
+  </g>
+
+  <!-- Title -->
+  <text x="280" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="white">
+    Globalfolio
+  </text>
+
+  <!-- Subtitle -->
+  <text x="280" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="rgba(255,255,255,0.8)">
+    個人資產組合檢視工具
+  </text>
+
+  <text x="280" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="rgba(255,255,255,0.6)">
+    Personal Asset Portfolio Viewer
+  </text>
+
+  <!-- Features -->
+  <g transform="translate(280, 400)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">
+      💰 多幣別資產追蹤   📊 即時視覺化   🔒 本機儲存
+    </text>
+  </g>
+
+  <!-- URL -->
+  <text x="280" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="rgba(147,197,253,0.9)">
+    phisixersai.github.io/globalfolio
+  </text>
+</svg>
