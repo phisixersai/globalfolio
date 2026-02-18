@@ -41,6 +41,14 @@ export function AllocationPieChart() {
     () => ({
       responsive: true,
       maintainAspectRatio: true,
+      layout: {
+        padding: {
+          top: 30,
+          bottom: 10,
+          left: 10,
+          right: 10,
+        },
+      },
       plugins: {
         legend: {
           position: 'bottom' as const,
