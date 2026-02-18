@@ -68,7 +68,8 @@
     "stocks.TW": "台湾株",
     "stocks.JP": "日本株",
     "stocks.US": "米国株",
-    "realEstate": "不動産"
+    "realEstate": "不動産",
+    "liabilities": "負債"
   },
   "footer": {
     "description": "データはブラウザにローカル保存され、サーバーにアップロードされません。"

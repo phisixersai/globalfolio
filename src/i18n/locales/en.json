@@ -68,7 +68,8 @@
     "stocks.TW": "TW Stocks",
     "stocks.JP": "JP Stocks",
     "stocks.US": "US Stocks",
-    "realEstate": "Real Estate"
+    "realEstate": "Real Estate",
+    "liabilities": "Liabilities"
   },
   "footer": {
     "description": "Data is stored locally in your browser and never uploaded to any server."

@@ -68,7 +68,8 @@
     "stocks.TW": "台股",
     "stocks.JP": "日股",
     "stocks.US": "美股",
-    "realEstate": "不動產"
+    "realEstate": "不動產",
+    "liabilities": "負債"
   },
   "footer": {
     "description": "資料儲存於瀏覽器本機，不會上傳至任何伺服器。"
