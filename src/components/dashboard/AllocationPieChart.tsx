@@ -22,19 +22,48 @@ export function AllocationPieChart() {
     [portfolio, rates, displayCurrency]
   );
 
+  // Reorder slices to group same currency assets together in the chart
+  const reorderedSlices = useMemo(() => {
+    const currencyGroups = {
+      TWD: [] as typeof slices,
+      JPY: [] as typeof slices,
+      USD: [] as typeof slices,
+      other: [] as typeof slices,
+    };
+
+    slices.forEach((slice) => {
+      if (slice.label === 'cash.TWD' || slice.label === 'stocks.TW') {
+        currencyGroups.TWD.push(slice);
+      } else if (slice.label === 'cash.JPY' || slice.label === 'stocks.JP') {
+        currencyGroups.JPY.push(slice);
+      } else if (slice.label === 'cash.USD' || slice.label === 'stocks.US') {
+        currencyGroups.USD.push(slice);
+      } else {
+        currencyGroups.other.push(slice);
+      }
+    });
+
+    return [
+      ...currencyGroups.TWD,
+      ...currencyGroups.JPY,
+      ...currencyGroups.USD,
+      ...currencyGroups.other,
+    ];
+  }, [slices]);
+
   const chartData = useMemo(
     () => ({
-      labels: slices.map((s) => t(`allocation.${s.label}`)),
+      labels: reorderedSlices.map((s) => t(`allocation.${s.label}`)),
       datasets: [
         {
-          data: slices.map((s) => s.valueInDisplayCurrency),
-          backgroundColor: slices.map((s) => s.color),
+          data: reorderedSlices.map((s) => s.valueInDisplayCurrency),
+          backgroundColor: reorderedSlices.map((s) => s.color),
           borderColor: theme === 'dark' ? '#1f2937' : '#ffffff',
           borderWidth: 2,
         },
       ],
     }),
-    [slices, t, theme]
+    [reorderedSlices, t, theme]
   );
 
   const options = useMemo(
@@ -58,6 +87,22 @@ export function AllocationPieChart() {
             usePointStyle: true,
             font: {
               size: 13,
+            },
+            generateLabels: (chart: any) => {
+              const datasets = chart.data.datasets;
+              // Use original slices order for legend
+              return slices.map((slice, i) => {
+                const reorderedIndex = reorderedSlices.findIndex((s) => s.label === slice.label);
+                return {
+                  text: t(`allocation.${slice.label}`),
+                  fillStyle: slice.color,
+                  strokeStyle: theme === 'dark' ? '#1f2937' : '#ffffff',
+                  lineWidth: 2,
+                  hidden: false,
+                  index: reorderedIndex,
+                  datasetIndex: 0,
+                };
+              });
             },
           },
         },
@@ -137,7 +182,7 @@ export function AllocationPieChart() {
         },
       },
     }),
-    [theme, slices]
+    [theme, slices, reorderedSlices, t]
   );
 
   if (slices.length === 0) {
