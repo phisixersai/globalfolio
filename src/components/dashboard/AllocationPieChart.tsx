@@ -96,6 +96,7 @@ export function AllocationPieChart() {
                   text: t(`allocation.${slice.label}`),
                   fillStyle: slice.color,
                   strokeStyle: theme === 'dark' ? '#1f2937' : '#ffffff',
+                  fontColor: theme === 'dark' ? '#e5e7eb' : '#1f2937',
                   lineWidth: 2,
                   hidden: false,
                   index: reorderedIndex,
