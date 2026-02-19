@@ -32,6 +32,7 @@ export function ExchangeRateProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useExchangeRateContext(): ExchangeRateContextValue {
   const ctx = useContext(ExchangeRateContext);
   if (!ctx) throw new Error('useExchangeRateContext must be used within ExchangeRateProvider');

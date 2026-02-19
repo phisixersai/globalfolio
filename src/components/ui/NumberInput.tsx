@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 interface NumberInputProps {
   label: string;
@@ -20,33 +20,33 @@ function parseNumberFromString(str: string): number {
 }
 
 export function NumberInput({ label, value, onChange, prefix, className = '' }: NumberInputProps) {
-  const [displayValue, setDisplayValue] = useState(formatNumberWithCommas(value));
+  const [internalValue, setInternalValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
-  useEffect(() => {
-    if (!isFocused) {
-      setDisplayValue(formatNumberWithCommas(value));
+  // Derive display value based on focus state
+  const displayValue = useMemo(() => {
+    if (isFocused) {
+      return internalValue;
     }
-  }, [value, isFocused]);
+    return formatNumberWithCommas(value);
+  }, [isFocused, internalValue, value]);
 
   const handleFocus = () => {
     setIsFocused(true);
-    setDisplayValue(value === 0 ? '' : String(value));
+    setInternalValue(value === 0 ? '' : String(value));
   };
 
   const handleBlur = () => {
     setIsFocused(false);
-    const numValue = parseNumberFromString(displayValue);
+    const numValue = parseNumberFromString(internalValue);
     onChange(numValue);
-    setDisplayValue(formatNumberWithCommas(numValue));
+    setInternalValue('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    if (isFocused) {
-      if (input === '' || /^-?\d*\.?\d*$/.test(input.replace(/,/g, ''))) {
-        setDisplayValue(input);
-      }
+    if (input === '' || /^-?\d*\.?\d*$/.test(input.replace(/,/g, ''))) {
+      setInternalValue(input);
     }
   };
 

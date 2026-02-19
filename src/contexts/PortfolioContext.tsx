@@ -17,6 +17,7 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
   return <PortfolioContext value={value}>{children}</PortfolioContext>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function usePortfolioContext(): PortfolioContextValue {
   const ctx = useContext(PortfolioContext);
   if (!ctx) throw new Error('usePortfolioContext must be used within PortfolioProvider');

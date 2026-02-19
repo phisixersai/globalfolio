@@ -3,10 +3,13 @@ import { Footer } from './Footer';
 import { AssetForm } from '../assets/AssetForm';
 import { Dashboard } from '../dashboard/Dashboard';
 import { ExchangeRatePanel } from '../exchange/ExchangeRatePanel';
+import { ConsentBanner } from '../ads/ConsentBanner';
 
 export function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col">
+      {/* GDPR Consent Banner (shows only when AdSense enabled) */}
+      <ConsentBanner />
       <Header />
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">

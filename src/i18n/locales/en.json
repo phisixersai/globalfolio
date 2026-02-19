@@ -72,6 +72,16 @@
     "liabilities": "Liabilities"
   },
   "footer": {
-    "description": "Data is stored locally in your browser and never uploaded to any server."
+    "description": "Data is stored locally in your browser and never uploaded to any server.",
+    "privacy": "Privacy Policy",
+    "adSettings": "Ad Settings"
+  },
+  "consent": {
+    "banner": {
+      "title": "Cookie & Ad Settings",
+      "message": "We use cookies to provide personalized ads. Click 'Accept' to enable ads, or 'Decline' to use essential features only.",
+      "acceptAll": "Accept All",
+      "decline": "Decline"
+    }
   }
 }

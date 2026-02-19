@@ -72,6 +72,16 @@
     "liabilities": "負債"
   },
   "footer": {
-    "description": "資料儲存於瀏覽器本機，不會上傳至任何伺服器。"
+    "description": "資料儲存於瀏覽器本機，不會上傳至任何伺服器。",
+    "privacy": "隱私政策",
+    "adSettings": "廣告設定"
+  },
+  "consent": {
+    "banner": {
+      "title": "Cookie 與廣告設定",
+      "message": "我們使用 Cookies 來提供個人化廣告。點擊「接受」以啟用廣告，或點擊「拒絕」僅使用基本功能。",
+      "acceptAll": "接受所有",
+      "decline": "拒絕"
+    }
   }
 }

@@ -49,3 +49,7 @@ Thumbs.db
 
 # Claude Code guidance
 CLAUDE.md
+
+# Ad implementation documentation (internal only)
+AD_SETUP.md
+AD_IMPLEMENTATION_SUMMARY.md

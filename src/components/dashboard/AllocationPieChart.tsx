@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import type { Context } from 'chartjs-plugin-datalabels';
 import { usePortfolioContext } from '../../contexts/PortfolioContext';
 import { useExchangeRateContext } from '../../contexts/ExchangeRateContext';
 import { useThemeContext } from '../../contexts/ThemeContext';
@@ -116,15 +117,17 @@ export function AllocationPieChart() {
           },
         },
         datalabels: {
-          color: (context: any) => {
+          color: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             // Small slices get dark text on light background
             return percentage < 8 ? (theme === 'dark' ? '#1f2937' : '#111827') : '#ffffff';
           },
-          font: (context: any) => {
+          font: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             return {
               size: percentage < 8 ? 13 : 16,
               weight: 'bold' as const,
@@ -136,46 +139,53 @@ export function AllocationPieChart() {
             return percentage > 0 ? `${percentage}%` : '';
           },
           // Position labels differently based on slice size
-          anchor: (context: any) => {
+          anchor: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             // Small slices: anchor at the end (outer edge)
             // Large slices: anchor at center for better positioning
             return percentage < 8 ? 'end' : 'center';
           },
-          align: (context: any) => {
+          align: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             // Small slices: align to end (outside the chart)
             // Large slices: align to center
             return percentage < 8 ? 'end' : 'center';
           },
-          offset: (context: any) => {
+          offset: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             // Small slices get pushed further out
             return percentage < 8 ? 10 : 0;
           },
-          backgroundColor: (context: any) => {
+          backgroundColor: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             // Small slices get a background box for readability
             return percentage < 8 ? (theme === 'dark' ? 'rgba(229, 231, 235, 0.95)' : 'rgba(255, 255, 255, 0.95)') : 'transparent';
           },
-          borderColor: (context: any) => {
+          borderColor: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             return percentage < 8 ? (theme === 'dark' ? 'rgba(156, 163, 175, 0.5)' : 'rgba(209, 213, 219, 0.8)') : 'transparent';
           },
-          borderWidth: (context: any) => {
+          borderWidth: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             return percentage < 8 ? 1 : 0;
           },
           borderRadius: 4,
-          padding: (context: any) => {
+          padding: (context: Context) => {
             const total = slices.reduce((sum, s) => sum + s.valueInDisplayCurrency, 0);
-            const percentage = total > 0 ? Math.round((context.dataset.data[context.dataIndex] / total) * 100) : 0;
+            const dataValue = context.dataset.data[context.dataIndex] as number;
+            const percentage = total > 0 ? Math.round((dataValue / total) * 100) : 0;
             return percentage < 8 ? 4 : 0;
           },
           clamp: false, // Allow labels to go outside the chart area
